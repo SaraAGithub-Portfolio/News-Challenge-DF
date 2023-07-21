@@ -10,7 +10,7 @@ describe('get news tests', () => {
         axios.get.mockResolvedValueOnce({ data: mockNewsData });
         DataService();
 
-        expect(axios.get).toHaveBeenCalledWith('/mockApiResponse');
+        expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/webTitle');
     });
     test('should return correct data', async () => {
         axios.get.mockResolvedValueOnce(mockNewsData);

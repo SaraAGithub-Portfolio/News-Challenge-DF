@@ -2,9 +2,10 @@ import axios from 'axios';
 
 export const DataService = async () => {
     try {
-        const responseData = await axios.get('/mockApiResponse');
-        return (responseData.data.response.results)
+        const responseData = await axios.get('http://localhost3000/webTitle');
+        return responseData.data;
     } catch (error) {
-        return error;
+        console.error('Error fetching data:', error);
+        return [];
     }
-}
+};
