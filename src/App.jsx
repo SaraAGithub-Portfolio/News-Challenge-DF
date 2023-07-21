@@ -1,9 +1,9 @@
-import axios from "axios";
 import { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Headlines from "./Components/Headlines";
-import mockNewsData from "../tests/mock data/mockNewsData.json";
+import HeadlineCard from "./Components/HeadlineCard";
+import { DataService } from './src/Utils/DataService.js'
 
 const App = () => {
   const [headlines, setHeadlines] = useState([]);
@@ -14,9 +14,8 @@ const App = () => {
 
   const getHeadlines = async () => {
     try {
-      const response = await axios.get("http://localhost:5173/mockApiResponse/");
-      console.log(response);
-      setHeadlines(mockNewsData.data.results);
+      const specificData = await DataService();
+      setHeadlines(specificData.slice(0, 3));
     } catch (error) {
       console.log('Error fetching headlines:', error);
     }
@@ -31,6 +30,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Headlines headlines={headlines} />} />
+        <Route path="/headline/id" element={<HeadlineCard headline={headlines} />} />
       </Routes>
     </Router>
 
