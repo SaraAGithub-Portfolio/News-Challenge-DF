@@ -1,18 +1,11 @@
-import PropTypes from 'prop-types';
 
-const Header = ({ title }) => {
+const Header = () => {
+
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12 text-center">
-                    <h3 className="animate-character" data-testid="header">{title}</h3>
-                </div>
-            </div>
+        <div className="header">
+            <h1>Today&s News</h1>
         </div>
-    );
-};
-Header.propTypes = {
-    title: PropTypes.string.isRequired,
-};
+    )
+}
 
 export default Header;

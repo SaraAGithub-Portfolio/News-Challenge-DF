@@ -14,7 +14,7 @@ const Headlines = ({ headlines }) => {
 
     return (
         <div>
-            {newsHeadlines.length > 0 ? newsHeadlines : <div>Page is loading</div>}
+            {newsHeadlines.length > 0 ? newsHeadlines : <div>Please wait a moment...</div>}
         </div>
     );
 };

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Headlines from './Components/Headlines';
-import HeadlineCard from './Components/HeadlineCard';
-import { DataService } from './Utils/DataService';
-import { getThreeHeadlines } from './Utils/DataServiceArray';
+import { getThreeHeadlines } from '../src/Utils/dataservice';
+import './App.css';
+
+import Header from './Components/Header';
 
 const App = () => {
   const [headlines, setHeadlines] = useState([]);
@@ -14,27 +15,24 @@ const App = () => {
 
   const getHeadlines = async () => {
     try {
-      const response = await DataService();
-      setHeadlines(response);
-      const threeHeadlines = getThreeHeadlines();
-      setHeadlines(threeHeadlines);
+      const headlines = await getThreeHeadlines();
+      setHeadlines(headlines);
     } catch (error) {
       console.log('Error fetching headlines:', error);
     }
   };
 
+
   if (headlines.length === 0) {
-    return <div>Loading...</div>;
+    return <div>Please wait a moment...</div>;
   }
 
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Headlines headlines={headlines} />} />
-        <Route
-          path="/headline/:id"
-          element={<HeadlineCard headline={headlines} />}
-        />
+
       </Routes>
     </Router>
   );
