@@ -31,4 +31,5 @@ describe('Headlines test', () => {
         const { getByText } = render(<Headlines headlines={[]} />);
         expect(getByText('Please wait a moment...')).toBeInTheDocument();
     });
+
 });
