@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Headlines from './Components/Headlines';
+import Headlines from './Components/Headlines/Headlines';
 import { getThreeHeadlines } from '../src/Utils/dataservice';
 import './App.css';
 

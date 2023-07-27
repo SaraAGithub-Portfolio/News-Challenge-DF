@@ -1,23 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import Headlines from '../src/Components/Headlines';
+import Headlines from '../src/Components/Headlines/Headlines';
+import mockNewsData from '../mockNewsData.json';
 
 describe('Headlines Test', () => {
-    const mockHeadlines = [
-        {
-            id: '1',
-            fields: {
-                headline: 'mock headline 1',
-                thumbnail: 'mock thumbnail url 1'
-            },
-        },
-        {
-            id: '2',
-            fields: {
-                headline: 'mock headline 2',
-                thumbnail: 'mock thumbnail url 2'
-            },
-        }
-    ];
+
+    const mockHeadlines = mockNewsData.mockNewsData.mockApiResponse;
 
     test('renders a message when no headlines are provided', () => {
         render(<Headlines headlines={[]} />);

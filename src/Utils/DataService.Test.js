@@ -7,15 +7,15 @@ vi.mock(`axios`);
 
 describe('DataService Tests', () => {
     test('should make an external call', async () => {
-        axios.get.mockResolvedValueOnce(mockNewsData);
+        axios.get.mockResolvedValueOnce({ data: mockNewsData.mockApiResponse });
         await getThreeHeadlines();
 
         expect(axios.get).toHaveBeenCalledWith(import.meta.env.VITE_APP_LOCAL_API_KEY);
     });
     test('should return correct data', async () => {
-        axios.get.mockResolvedValueOnce(mockNewsData);
+        axios.get.mockResolvedValueOnce({ data: mockNewsData.mockApiResponse });
 
         const result = await getThreeHeadlines();
-        expect(result).toEqual(mockNewsData.data.response.results.slice(0, 3));
+        expect(result).toEqual(mockNewsData.mockApiResponse.response.results.slice(0, 3));
     });
 });

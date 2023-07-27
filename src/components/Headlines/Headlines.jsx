@@ -1,3 +1,4 @@
+import './Headlines.css';
 import PropTypes from 'prop-types';
 
 const Headlines = ({ headlines }) => {
@@ -15,14 +16,14 @@ const Headlines = ({ headlines }) => {
     ));
 
     return (
-        <div className="container">
+        <div className="headlines-container">
             {newsHeadlines.length > 0 ? newsHeadlines : <div>Please wait a moment...</div>}
         </div>
     );
 };
 
 Headlines.propTypes = {
-    headlines: PropTypes.array,
+    headlines: PropTypes.array.isRequired,
 };
 
 export default Headlines;
