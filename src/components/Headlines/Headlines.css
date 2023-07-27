@@ -3,3 +3,20 @@
             #004e92);
     padding: 20px;
 }
+
+.card-img-top {
+    width: 50%;
+    height: auto;
+}
+
+.card-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+
+}
+
+.card-body {
+    padding: 20px;
+    background-color: aliceblue;
+
+}

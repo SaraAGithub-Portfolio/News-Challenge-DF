@@ -1,7 +1,4 @@
 .font-times {
-    font-family: 'Times New Roman'
-}
-
-body {
-    background-color: seagreen;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 70px;
 }

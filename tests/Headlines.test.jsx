@@ -4,7 +4,7 @@ import mockNewsData from '../mockNewsData.json';
 
 describe('Headlines Test', () => {
 
-    const mockHeadlines = mockNewsData.mockNewsData.mockApiResponse;
+    const mockHeadlines = mockNewsData.mockApiResponse;
 
     test('renders a message when no headlines are provided', () => {
         render(<Headlines headlines={[]} />);
