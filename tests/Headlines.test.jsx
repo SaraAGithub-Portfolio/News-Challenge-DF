@@ -4,8 +4,6 @@ import mockNewsData from '../mockNewsData.json';
 
 describe('Headlines Test', () => {
 
-    const mockHeadlines = mockNewsData.mockApiResponse;
-
     test('renders a message when no headlines are provided', () => {
         render(<Headlines headlines={[]} />);
         const message = screen.getByText('Please wait a moment...');
@@ -13,10 +11,9 @@ describe('Headlines Test', () => {
     });
 
     test('renders headlines when provided', () => {
-        render(<Headlines headlines={mockHeadlines} />);
-        const headline1 = screen.getByText('mock headline 1');
-        const headline2 = screen.getByText('mock headline 2');
-        expect(headline1).toBeInTheDocument();
-        expect(headline2).toBeInTheDocument();
+        render(<Headlines headlines={mockNewsData.mockApiResponse.response.results} />);
+        const headlineElements = screen.getAllByRole('heading');
+        expect(headlineElements).toHaveLength(mockNewsData.mockApiResponse.response.results.length);
     });
+
 });

@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-export const getHeadlines = async () => {
+export const getData = async () => {
     try {
-        const apiUrl = import.meta.env.VITE_APP_LOCAL_API_KEY;
-        console.log(`Fetching data from: ${apiUrl}`);
-        const response = await axios.get(import.meta.env.VITE_APP_LOCAL_API_KEY);
+        const response = await axios.get("https://content.guardianapis.com/search?order-by=newest&show-fields=byline%2Cthumbnail%2Cheadline%2CbodyText&api-key=1a3b7ff1-a33f-41ed-a0a3-0f3855c04cbc");
         const headlines = response.data.response.results;
         return headlines;
     } catch (error) {
@@ -13,15 +11,5 @@ export const getHeadlines = async () => {
     }
 };
 
-export const getArticleById = async (id) => {
-    try {
-        const apiUrl = `${import.meta.env.VITE_APP_BASE_API_URL}${id}?show-fields=all&api-key=${import.meta.env.VITE_APP_LOCAL_API_KEY}`;
-        const response = await axios.get(apiUrl);
-        return response.data.response.results;
-    } catch (error) {
-        console.log(`Error fetching article with id${id}:`, error)
-        return null;
-    }
-}
 
 
