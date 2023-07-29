@@ -2,17 +2,12 @@
     background: linear-gradient(to right, #000428,
             #004e92);
     padding: 20px;
+    font-size: 40px;
 }
 
 .card-img-top {
     width: 50%;
     height: auto;
-}
-
-.card-title {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40px;
-
 }
 
 .card-body {
