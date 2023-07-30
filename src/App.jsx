@@ -7,6 +7,7 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Header/Footer/Footer';
 
 
+
 const App = () => {
   const [newsData, setNewsData] = useState([]);
 
