@@ -1,17 +1,25 @@
 .headlines-container {
-    background: linear-gradient(to right, #000428,
-            #004e92);
-    padding: 20px;
+    background: linear-gradient(to right, #000428, #004e92);
+    padding: 10px;
     font-size: 40px;
-}
-
-.card-img-top {
-    width: 50%;
-    height: auto;
+    color: whitesmoke;
 }
 
 .card-body {
-    padding: 20px;
+    padding: 0px;
     background-color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
 
+.card.mb-4 {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img-top {
+    max-width: 1000px;
+    margin: 0;
 }

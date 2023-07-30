@@ -1,16 +1,29 @@
 # News Summary Challenge
 
-### Task
+### About the project
 
-You'll test-drive a single page application in React that send requests to the Guardian API to get Headline and Article data and display them. 
+This is a single page application that uses Javascript, built in React + Vite, to send requests to the Guardian API which retrieves the latest headlines(along with thumbnails), and displays them on a static page, so that the user may view the latest news.
 
-### Serving your app
+### Layout of Project
 
-You'll use React's toolchain to take care of serving your HTML, CSS and JavaScript files.  
+The project consists of Components: Headlines, Header, Footer, App, and  a Util folder which holds the DataService file which is responsible for making the external calls using Axios. For organizational purposes, I created a Test folder which holds the tests for the App and Headlines.
+
+In the DataService.js file is where the external call is made. Normally, an API Key would not be so freely exposed and would typically be placed within a .env file, but for the purposes of this project, which is for learning purposes, I placed the URL and API key within a const variable so that anyone who uses this project/clones it will be able to see how it works. 
+
+In a normal situation, a .env file would be created to conceal the API key.
+
+Component Hierarchy:
+  App
+    -Header
+    -Headlines
+      -Thumbnail
+      -Article Headline
+    -Footer
+
+## Approach
+
 
 ## User Stories
-
-Some of these stories will need decomposing if they seem too large.
 
 ### Standard
 ```
@@ -25,31 +38,6 @@ So that I have something nice to look at
 I can see a relevant picture to illustrate each news article when I browse headlines
 ```
 
-### Extended
-
-```
-As a busy politician
-So that I can get an in depth understanding of a very important story
-I can click a news headline to see a summary and a photo of the news article
-```
-
-```
-As a busy politician
-So I can get a few more details about an important story
-I can see click a news article summary title which links to the original article
-```
-
-```
-As a busy politician
-Just in case my laptop breaks
-I can read the site comfortably on my phone
-```
-
-<!-- ```
-As a busy politician
-To make my news reading more fun
-I can see whizzy animations in the app
-``` -->
 
 ## Mockups
 
@@ -61,86 +49,19 @@ I can see whizzy animations in the app
 
 ![Article page mockup](/images/news-summary-project-article-page-mockup.png)
 
-## API
-
-### API request rate limits and stubbing
-
-The Guardian and Aylien text summarisation APIs are severely rate-limited.
-
-**Please stub your tests so you don't exceed the daily limit.  Otherwise, all requests will be rejected and your app will stop working!**
-
-### Guardian API example
-
-**Please stub your tests to avoid exceeding the API rate limit**
-
-If you wanted to get the content of an article from the Guardian API, this is the cURL request you might make.  Notice how it has a query parameter for `api-key`.
-
-```sh
-# Search endpoint
-curl "https://content.guardianapis.com/search?q=coronavirus&show-fields=body&api-key=API_KEY"
+## How to Use:
 ```
-```sh
-# Single Item endpoint
-curl "https://content.guardianapis.com/world/2021/mar/22/link-between-diabetes-and-coronavirus-infections?show-fields=body&api-key=API_KEY"
+For Testing Purposes: Open an integrated terminal from 'Test Folder' and in the terminal in Vs Code type: npm run test. You should see that all tests pass.
+
+To view the webpage in your browser: Open an integrated terminal in the root of the project and in the terminal write :
+
+ npm run dev.   
+
+ The server will redirect to portal 3000 where you can view the news. If you want to update your news feed, you can refresh the page and new headlines and thumbnails will be displayed. 
+
+
 ```
 
-#### Example request data
 
-[Mock Data](./mockNewsData.json) - contains a request to the Guardian API with fields selected that will help you with the challenge.  The actual request made was to:
 
-https://content.guardianapis.com/search?order-by=newest&show-fields=byline%2Cthumbnail%2Cheadline%2CbodyText&api-key=INSERT_YOUR_KEY_HERE
 
-You will need to replace `INSERT_YOUR_KEY_HERE` with your own Guardian API key.  Use this data whilst developing, serving it from `json-server` - it will help on the request rate limit in the API.
-
-<!-- ### Aylien text summarisation API example
-
-**Please stub your tests to avoid exceeding the API rate limit**
-
-If you wanted to use the Aylien API to summarise an article by Bret Victor, this is the cURL request you might make.  Notice how it has headers to authenticate with the Aylien API.
-
-```
-curl "https://api.aylien.com/api/v1/summarize?url=http://worrydream.com/MediaForThinkingTheUnthinkable/note.html" \
-  -H "X-AYLIEN-TextAPI-Application-ID: APPLICATION_ID" \
-  -H "X-AYLIEN-TextAPI-Application-Key: SECRET_APPLICATION_KEY"
-```
--->
-
-## Resources
-
-* [Guardian newspaper API homepage](http://open-platform.theguardian.com/documentation/)
-<!-- * [Aylien text summary API docs](http://docs.aylien.com/docs/summarize) -->
-* cURL [man page](https://curl.haxx.se/docs/manpage.html)
-* [Hurl](https://www.hurl.it/), a web interface for sending HTTP requests
-
----
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.

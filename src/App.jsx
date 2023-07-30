@@ -4,34 +4,31 @@ import Headlines from './Components/Headlines/Headlines';
 import { getData } from './Utils/dataservice';
 import './App.css';
 import Header from './Components/Header/Header';
+import Footer from './Components/Header/Footer/Footer';
 
 
 const App = () => {
-  const [headlines, setHeadlines] = useState([]);
+  const [newsData, setNewsData] = useState([]);
 
-  useEffect(() => {
-    fetchHeadlines();
-  }, []);
-
-  const fetchHeadlines = async () => {
+  const fetchNews = async () => {
     try {
       const data = await getData();
-      setHeadlines(data);
+      setNewsData(data);
     } catch (error) {
-      console.log('Error fetching headlines:', error);
+      console.log('Error fetching news:', error);
     }
   };
-
-  if (headlines.length === 0) {
-    return <div>Please wait a moment...</div>;
-  }
+  useEffect(() => {
+    fetchNews();
+  }, []);
 
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Headlines headlines={headlines} />} />
+        <Route path="/" element={<Headlines headlines={newsData} />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
